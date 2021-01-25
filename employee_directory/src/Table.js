@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from "react";
+// import './Table.css';
+
+const styles = {
+    titleFont: {
+    //  background: "#f4d7d7",
+     boxSizing: "border-box",
+     width: "10%"
+    },
+    buttonSpacing: {
+        marginTop: "10px"
+    }}
+
 
 const Table = ({ users }) => {
-    const [sortedUsers, updateSortedUsers] = useState([]);
+    let [sortedUsers, updateSortedUsers] = useState([]);
 
     useEffect(() => updateSortedUsers(users), [users]);
+
+    
 
     return (
         <div>
             <table className="table">
-                <thread>
-                    <tr>
+               
+                    <tr style={styles.titleFont}>
+                    
+                                           
+                        
+                        
+                        {/* <th style={styles.titleFont} scope="col">title</th> */}
                         <th scope="col">title</th>
-                        <th 
+                        <button style={styles.buttonSpacing}
                         scope="col"
                         onClick={() => {
                             const usersCopy = [...users];
@@ -29,9 +48,7 @@ const Table = ({ users }) => {
                             })
                             updateSortedUsers(updateSort);
                         }}
-                        >
-                            First
-                        </th>
+                        >First</button> 
                         <th scope="col">Last</th>
                         <th scope="col">gender</th>
                         <th scope="col">email</th>
@@ -43,7 +60,7 @@ const Table = ({ users }) => {
                         <th scope="col">postcode</th>
                         <th scope="col">picture</th>     
                     </tr>
-                </thread>
+                
                 <tbody>
                     {sortedUsers.map(
                         ({
@@ -56,23 +73,24 @@ const Table = ({ users }) => {
                             name: { first, last, title }
                         }) => (
                             <tr key={email}>
-                                <td>{title}</td>
-                                <td>{first}</td>
-                                <td>{last}</td>
-                                <td>{gender}</td>
-                                <td>{email}</td>
-                                <td>{phone}</td>
-                                <td>{cell}</td>
-                                <td>{city}</td>
-                                <td>{state}</td>
-                                <td>{country}</td>
-                                <td>{postcode}</td>
-                                <td>
-                                    <img src={thumbnail} />
-                                </td>
-
-                                <td></td>
-                            </tr>
+                            <td style={styles.titleFont}>{title}</td>
+                            <th>{first}</th>
+                            <td>{last}</td>
+                            <td>{gender}</td>
+                            <td>{email}</td>
+                            <td>{phone}</td>
+                            <td>{cell}</td>
+                            <td>{city}</td>
+                            <td>{state}</td>
+                            <td>{country}</td>
+                            <td>{postcode}</td>
+                            
+                            <td>
+                              <img src={thumbnail} />
+                            </td>
+            
+                         
+                          </tr>
                         )
                     )}
                 </tbody>

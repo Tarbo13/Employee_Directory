@@ -10,12 +10,14 @@ const [usersToRender, updateUsersToRender] = useState([]);
 
 useEffect(() => {
   getUsers().then(({data: { results }}) => updateAvailableUsers(results));
-}, []);
-
+  
+},
+ []);
+ 
   return (
     <div className="App">
-      <h1>Employee Directory</h1>
-      <p>
+      <h1 className="App-logo">Employee Directory</h1>
+      <p className="App-logo">
         To filter by first name, please begin your search in the user input below
       </p>
       <FilterInput users={initialUsers} updateUsers={updateUsersToRender} />
