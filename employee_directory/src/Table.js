@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import './Table.css';
+import './Table.css';
 
 const styles = {
     titleFont: {
@@ -8,9 +8,11 @@ const styles = {
      width: "10%"
     },
     buttonSpacing: {
-        marginTop: "10px"
+        marginTop: "10px"    
+    
     }}
 
+   
 
 const Table = ({ users }) => {
     let [sortedUsers, updateSortedUsers] = useState([]);
